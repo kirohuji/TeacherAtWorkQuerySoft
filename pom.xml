@@ -21,6 +21,11 @@
         <logback.version>1.7.5</logback.version>
         <slf4j.version>1.7.5</slf4j.version>        
     </properties>
+    <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </parent>
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -80,6 +85,21 @@
             <artifactId>logback-access</artifactId>
             <version>${logback.version}</version>
         </dependency>
+         <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+            </dependency>
+            <!-- 下面两个引入为了操作数据库 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency>
+            
     </dependencies>
     <build>
         <plugins>
@@ -99,7 +119,30 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-            </plugin>            
+            </plugin>   
+                           <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <dependencies>
+                        <!-- 热部署 -->
+                        <dependency>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>springloaded</artifactId>
+                            <version>1.2.6.RELEASE</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>         
         </plugins>
     </build>
+    
+        <repositories>
+            <repository>
+                <id>ali</id>
+                <name>ali Repository</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
+        </repositories>
 </project>
