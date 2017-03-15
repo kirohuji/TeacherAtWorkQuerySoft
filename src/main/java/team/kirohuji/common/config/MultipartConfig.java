@@ -9,6 +9,6 @@ package team.kirohuji.common.config;
  *
  * @author zyd
  */
-public class Config {
+public class MultipartConfig {
     
 }
