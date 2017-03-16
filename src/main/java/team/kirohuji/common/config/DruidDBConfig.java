@@ -25,7 +25,6 @@ import java.util.logging.Level;
      */
 @Configuration
 public class DruidDBConfig {
-    private Logger logger=LoggerFactory.getLogger(DruidDBConfig.class);
     @Value("${spring.datasource.url}")
     private String dbUrl;
     

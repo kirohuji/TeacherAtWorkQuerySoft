@@ -29,7 +29,7 @@ package team.kirohuji.common.swagger;
             return new Docket(DocumentationType.SWAGGER_2)
                     .apiInfo(apiInfo())
                     .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.zsx.controller.api"))
+                    .apis(RequestHandlerSelectors.basePackage("team.kirohuji.controller.api"))
                     .paths(PathSelectors.any())
                     .build();
         }
@@ -38,7 +38,7 @@ package team.kirohuji.common.swagger;
             return new ApiInfoBuilder()
                     .title("Spring Boot中使用Swagger2构建RESTful APIs")
                     .description("描述")
-                    .termsOfServiceUrl("http://zsx.com.cn")
+                    .termsOfServiceUrl("http://kirohuji.team.com")
                     .version("1.0")
                     .build();
         }
